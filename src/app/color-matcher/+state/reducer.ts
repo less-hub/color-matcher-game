@@ -1,8 +1,6 @@
-import { createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { AvailableColors } from '../color-matcher.component';
 import * as ColorMatcherActions from './actions';
-
-export const COLOR_MATCHER_FEATURE_KEY = 'colorMatcher';
 
 export interface ColorMatcherState {
   isPlaying: boolean;
@@ -20,33 +18,36 @@ export const initialColorMatcherState: ColorMatcherState = {
   userColor: AvailableColors.Blue,
 };
 
-export const colorMatcherReducer = createReducer(
-  initialColorMatcherState,
-  on(ColorMatcherActions.startGame, (state, action) => {
-    return {
-      ...initialColorMatcherState,
-      isColoringBox: true,
-    };
-  }),
-  on(ColorMatcherActions.setGuessColor, (state, action) => {
-    return {
-      ...state,
-      isPlaying: true,
-      guessColor: action.color,
-    };
-  }),
-  on(ColorMatcherActions.guessColorSetted, (state, action) => {
-    return {
-      ...state,
-      isColoringBox: false,
-    };
-  }),
-  on(ColorMatcherActions.setUserColor, (state, action) => {
-    return {
-      ...state,
-      isPlaying: true,
-      hasUserChosen: true,
-      userColor: action.color,
-    };
-  })
-);
+export const colorMatcherFeature = createFeature({
+  name: 'colorMatcher',
+  reducer: createReducer(
+    initialColorMatcherState,
+    on(ColorMatcherActions.startGame, (state, action) => {
+      return {
+        ...initialColorMatcherState,
+        isColoringBox: true,
+      };
+    }),
+    on(ColorMatcherActions.setGuessColor, (state, action) => {
+      return {
+        ...state,
+        isPlaying: true,
+        guessColor: action.color,
+      };
+    }),
+    on(ColorMatcherActions.guessColorSetted, (state, action) => {
+      return {
+        ...state,
+        isColoringBox: false,
+      };
+    }),
+    on(ColorMatcherActions.setUserColor, (state, action) => {
+      return {
+        ...state,
+        isPlaying: true,
+        hasUserChosen: true,
+        userColor: action.color,
+      };
+    })
+  ),
+});

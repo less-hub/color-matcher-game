@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ColorMatcherState } from './reducer';
+import { colorMatcherFeature, ColorMatcherState } from './reducer';
 import * as ColorMatcherActions from './actions';
-import * as ColorMatcherSelector from './selectors';
 import { AvailableColors } from '../color-matcher.component';
+import { ColorMatcherSelectors } from './selectors';
 
 @Injectable()
 export class ColorMatcherFacade {
   public isPlaying$: Observable<boolean> = this.store.select(
-    ColorMatcherSelector.selectIsPlaying
+    ColorMatcherSelectors.selectIsPlaying
   );
 
   public hasUserChosen$: Observable<boolean> = this.store.select(
-    ColorMatcherSelector.selectHasUserChosen
+    ColorMatcherSelectors.selectHasUserChosen
   );
 
   public guessColor$: Observable<AvailableColors> = this.store.select(
-    ColorMatcherSelector.selectGuessColor
+    ColorMatcherSelectors.selectGuessColor
   );
 
   public isColoringBox$: Observable<boolean> = this.store.select(
-    ColorMatcherSelector.selectIsColoringBox
+    ColorMatcherSelectors.selectIsColoringBox
   );
 
   public userColor$: Observable<AvailableColors> = this.store.select(
-    ColorMatcherSelector.selectUserColor
+    ColorMatcherSelectors.selectUserColor
   );
 
   public winnerText$: Observable<string> = this.store.select(
-    ColorMatcherSelector.selectWinnerText
+    ColorMatcherSelectors.selectWinnerText
   );
 
   public startGame(): void {

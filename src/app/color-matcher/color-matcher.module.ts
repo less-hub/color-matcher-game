@@ -3,10 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { ColorMatcherFacade } from './+state/facade';
-import {
-  colorMatcherReducer,
-  COLOR_MATCHER_FEATURE_KEY,
-} from './+state/reducer';
+import { colorMatcherFeature } from './+state/reducer';
 import { ColorMatcherComponent } from './color-matcher.component';
 import { ColorMatcherRoutingModule } from './color-matcher.routing';
 import { ColorMatcherFormComponent } from './pure-color-matcher/color-matcher-form/color-matcher-form.component';
@@ -22,7 +19,7 @@ import { PureColorMatcherComponent } from './pure-color-matcher/pure-color-match
     CommonModule,
     ColorMatcherRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(COLOR_MATCHER_FEATURE_KEY, colorMatcherReducer),
+    StoreModule.forFeature(colorMatcherFeature),
   ],
   providers: [ColorMatcherFacade],
 })
