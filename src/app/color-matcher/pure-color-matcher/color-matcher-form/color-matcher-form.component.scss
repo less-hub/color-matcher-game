@@ -1,0 +1,17 @@
+input {
+  display: none;
+}
+
+.form-color {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    height: 45px;
+    width: 45px;
+    border: 2px solid black;
+  }
+}

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+.lightblue {
+  background-color: cyan;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.orange {
+  background-color: tomato;
+}
+
+.violet {
+  background-color: violet;
+}
+
+.green {
+  background-color: chartreuse;
+}
+
+.darkgreen {
+  background-color: darkgreen;
+}
