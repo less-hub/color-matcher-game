@@ -6,7 +6,7 @@
     <cm-color-matcher-form *ngIf="!isColoringBox"></cm-color-matcher-form>
   </div>
   <div class="col d-flex flex-column justify-content-center align-items-center" *ngIf="isPlaying && hasPlayerChosen">
-    <span>{{ winnerText }}</span>
+    <span style="font-size: 3rem;">{{ winnerText }}</span>
     <button class="btn btn-primary mt-5" (click)="onStartGame()">Start new game!</button>
   </div>
 </div>
